@@ -12,7 +12,7 @@
         "steps": [
           {
             "result": {
-              "duration": 8861617951,
+              "duration": 6813991632,
               "status": "passed"
             },
             "line": 5,
@@ -24,7 +24,7 @@
           },
           {
             "result": {
-              "duration": 6858274091,
+              "duration": 8128593058,
               "status": "passed"
             },
             "line": 6,
@@ -45,9 +45,8 @@
           },
           {
             "result": {
-              "duration": 1767836,
-              "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat definitions.Def_PagoWebPay.se_realiza_el_pago(Def_PagoWebPay.java:68)\r\n\tat ✽.Then se realiza el pago(PagoWebPayMall.feature:7)\r\n",
-              "status": "pending"
+              "duration": 6735163719,
+              "status": "passed"
             },
             "line": 7,
             "name": "se realiza el pago",

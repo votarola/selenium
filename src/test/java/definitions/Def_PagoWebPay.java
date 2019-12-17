@@ -4,9 +4,10 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Applicationlauncher;
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 
 public class Def_PagoWebPay {
@@ -14,11 +15,14 @@ public class Def_PagoWebPay {
     public static String comercio = "597038357948";
     public static String order = "23213";
     public static String monto = "321";
+    public static String tc = "377826100086878";
+    public static String cvv = "1234";
+
 
     public static Object compras[][] = {
-            {"597038357948","1","1500"},
-            {"597038357948","1","2000"},
-            {"597038357921","1","2500"},
+            {"597038357948", "1", "1500"},
+            {"597038357948", "1", "2000"},
+            {"597038357921", "1", "2500"},
     };
 
     @Given("^quiero realizar un pago por webpay mall$")
@@ -42,7 +46,7 @@ public class Def_PagoWebPay {
         try {
             Applicationlauncher.pageWebPay.clickPagoMall();
 
-            for( int i=0; i < compras.length; i++ ) {
+            for (int i = 0; i < compras.length; i++) {
                 commerceCode = (String) compras[i][0];
                 buyOrder = (String) compras[i][1];
                 amount = (String) compras[i][2];
@@ -56,6 +60,8 @@ public class Def_PagoWebPay {
             }
 
             Applicationlauncher.pageWebPay.clickInitTransaction();
+            Thread.sleep(1500);
+
         } catch (Exception e) {
             e.printStackTrace();
             //driver.quit();
@@ -65,41 +71,28 @@ public class Def_PagoWebPay {
     @Then("^se realiza el pago$")
     public void se_realiza_el_pago() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
+
+        Applicationlauncher.pageWebPay.clickbtnCredito();
+        Applicationlauncher.pageWebPay.btnTarjetaCredito(tc);
+        Thread.sleep(1500);
+        Applicationlauncher.pageWebPay.clickclick1();
+        Applicationlauncher.pageWebPay.clickclick2();
+        Applicationlauncher.pageWebPay.clickclick3();
+        Applicationlauncher.pageWebPay.clickclick4();
+        Applicationlauncher.pageWebPay.btncvv(cvv);
+        Thread.sleep(1500);
+        Applicationlauncher.pageWebPay.clickbtnContinuarTX();
+
     }
-
-    /*public static void main(String[] args) throws InterruptedException {
-        String commerceCode = "";
-        String buyOrder = "";
-        String amount = "";
+}
 
 
-        Applicationlauncher.setUp();
+    /*
 
-        WebDriverWait wait = new WebDriverWait(Applicationlauncher.driver, 15);
-
-        try {
-            Applicationlauncher.driver.get("https://web3qa.test.transbank.cl:8443/ewebpay/jsf/welcome.jsf");
-
-            Applicationlauncher.pageWebPay.clickPagoMall();
-
-            for( int i=0; i < compras.length; i++ ) {
-                commerceCode = (String) compras[i][0];
-                buyOrder = (String) compras[i][1];
-                amount = (String) compras[i][2];
-
-                Applicationlauncher.pageWebPay.ingresarCodigoComercio(commerceCode);
-                Applicationlauncher.pageWebPay.ingresarBuyOrder(buyOrder);
-                Applicationlauncher.pageWebPay.ingresarAmount(amount);
-
-                Applicationlauncher.pageWebPay.clickBtnSave();
-                Thread.sleep(1500);
-            }
-
-            Applicationlauncher.pageWebPay.clickInitTransaction();
-
-           *//* WebElement btnCredito = wait.until(presenceOfElementLocated(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-payment/a[1]")));
-            btnCredito.click();
+           *//*
+           WebElement btnCredito = wait.until(presenceOfElementLocated(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-payment/a[1]")));
+           btnCredito.click();
 
 
             driver.findElement(By.id("visa-card-show")).sendKeys("377826100086878");
@@ -146,11 +139,14 @@ public class Def_PagoWebPay {
 
             //WebElement firstResult = wait.until(presenceOfElementLocated(By.cssSelector("h3>div")));
             //System.out.println(firstResult.getAttribute("textContent"));
+
+
         } catch (Exception e) {
             e.printStackTrace();
             //driver.quit();
         }
 
     }
+    }
 */
-}
+

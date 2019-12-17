@@ -29,6 +29,9 @@ public class PageWebPay {
     @FindBy(id = "ewebpayTestForm:j_idt32")
     private WebElement initTransaction;
 
+    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-payment/a[1]"))
+    private WebElement btnCredito;
+
 
 
     WebDriverWait wait = new WebDriverWait(Applicationlauncher.driver, 15);
@@ -66,34 +69,83 @@ public class PageWebPay {
         initTransaction.click();
     }
 
-
-
-
-/*
-
-            for( int i=0; i < compras.length; i++ ) {
-        commerceCode = (String) compras[i][0];
-        buyOrder = (String) compras[i][1];
-        amount = (String) compras[i][2];
-        WebElement CommerceCode = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("j_idt34:ewptdCommerceCode")));
-        CommerceCode.clear();
-        CommerceCode.sendKeys(commerceCode);
-
-        WebElement BuyOrder = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("j_idt34:ewptdBuyOrder")));
-        BuyOrder.clear();
-        BuyOrder.sendKeys(buyOrder);
-
-        WebElement Amount = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("j_idt34:ewptdAmount")));
-        Amount.clear();
-        Amount.sendKeys(amount);
-
-        WebElement btnSave = wait.until(presenceOfElementLocated(By.id("j_idt34:j_idt43")));
-        btnSave.click();
-        Thread.sleep(1500);
+    public void clickbtnCredito(){
+        wait.until(ExpectedConditions.visibilityOf(btnCredito));
+        btnCredito.click();
     }
 
-    WebElement initTransaction = wait.until(presenceOfElementLocated(By.id("ewebpayTestForm:j_idt32")));
-            initTransaction.click();
-*/
+    @FindBy(id = "visa-card-show")
+    private WebElement btnTarjetaCredito;
+
+    public void btnTarjetaCredito(String tc) {
+        wait.until(ExpectedConditions.visibilityOf(btnTarjetaCredito));
+        btnTarjetaCredito.clear();
+        btnTarjetaCredito.sendKeys(tc);
+    }
+
+    @FindBy(id = "password-invalid")
+    private WebElement btncvv;
+
+    public void btncvv(String cvv) {
+        wait.until(ExpectedConditions.visibilityOf(btncvv));
+        btncvv.sendKeys(cvv);
+    }
+
+    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[1]"))
+    private WebElement click1;
+
+    public void clickclick1(){
+        wait.until(ExpectedConditions.visibilityOf(click1));
+        click1.click();
+    }
+
+    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[1]/option[3]"))
+    private WebElement click2;
+
+    public void clickclick2(){
+        wait.until(ExpectedConditions.visibilityOf(click2));
+        click2.click();
+    }
+
+    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[2]"))
+    private WebElement click3;
+
+    public void clickclick3(){
+        wait.until(ExpectedConditions.visibilityOf(click3));
+        click3.click();
+    }
+
+    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[2]/option[5]"))
+    private WebElement click4;
+
+    public void clickclick4(){
+        wait.until(ExpectedConditions.visibilityOf(click4));
+        click4.click();
+    }
+
+    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/button"))
+    private WebElement btnContinuarTX;
+
+    public void clickbtnContinuarTX(){
+        wait.until(ExpectedConditions.visibilityOf(btnContinuarTX));
+        btnContinuarTX.click();
+    }
+
+
+   /*
+
+
+            WebElement btncvv = wait.until(presenceOfElementLocated(By.id("password-invalid")));
+            btncvv.click();
+            Thread.sleep(1500);
+            btncvv.sendKeys("1234");
+
+            driver.findElement(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[1]")).click();
+            driver.findElement(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[1]/option[3]")).click();
+            driver.findElement(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[2]")).click();
+            driver.findElement(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[2]/option[5]")).click();
+
+            Thread.sleep(1500);*/
+
 
 }

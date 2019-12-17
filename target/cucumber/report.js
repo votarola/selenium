@@ -94,7 +94,7 @@ formatter.match({
   "location": "Def_PagoWebPay.quiero_realizar_un_pago_por_webpay_mall()"
 });
 formatter.result({
-  "duration": 8861617951,
+  "duration": 6813991632,
   "status": "passed"
 });
 formatter.match({
@@ -107,15 +107,14 @@ formatter.match({
   "location": "Def_PagoWebPay.ingreso_los_montos_y_pago_con(String)"
 });
 formatter.result({
-  "duration": 6858274091,
+  "duration": 8128593058,
   "status": "passed"
 });
 formatter.match({
   "location": "Def_PagoWebPay.se_realiza_el_pago()"
 });
 formatter.result({
-  "duration": 1767836,
-  "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat definitions.Def_PagoWebPay.se_realiza_el_pago(Def_PagoWebPay.java:68)\r\n\tat ✽.Then se realiza el pago(PagoWebPayMall.feature:7)\r\n",
-  "status": "pending"
+  "duration": 6735163719,
+  "status": "passed"
 });
 });
