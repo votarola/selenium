@@ -1,0 +1,80 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 11,
+        "name": "PagoWebPayMall",
+        "description": "",
+        "id": "pagowebpaymall;pagowebpaymall;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 8861617951,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "quiero realizar un pago por webpay mall",
+            "match": {
+              "location": "Def_PagoWebPay.quiero_realizar_un_pago_por_webpay_mall()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 6858274091,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "ingreso los montos y pago con \"377826100086878\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "377826100086878",
+                  "offset": 31
+                }
+              ],
+              "location": "Def_PagoWebPay.ingreso_los_montos_y_pago_con(String)"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1767836,
+              "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat definitions.Def_PagoWebPay.se_realiza_el_pago(Def_PagoWebPay.java:68)\r\n\tat ✽.Then se realiza el pago(PagoWebPayMall.feature:7)\r\n",
+              "status": "pending"
+            },
+            "line": 7,
+            "name": "se realiza el pago",
+            "match": {
+              "location": "Def_PagoWebPay.se_realiza_el_pago()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 1,
+            "name": "@PagoWebPayMall"
+          }
+        ]
+      }
+    ],
+    "name": "PagoWebPayMall",
+    "description": "",
+    "id": "pagowebpaymall",
+    "keyword": "Feature",
+    "uri": "PagoWebPayMall.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@PagoWebPayMall"
+      }
+    ]
+  }
+]
