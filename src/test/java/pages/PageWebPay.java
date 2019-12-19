@@ -32,6 +32,47 @@ public class PageWebPay {
     @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-payment/a[1]"))
     private WebElement btnCredito;
 
+    @FindBy(id = "visa-card-show")
+    private WebElement btnTarjetaCredito;
+
+    @FindBy(id = "password-invalid")
+    private WebElement btncvv;
+
+    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[1]"))
+    private WebElement click1;
+
+    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[1]/option[3]"))
+    private WebElement click2;
+
+    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[2]"))
+    private WebElement click3;
+
+    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[2]/option[5]"))
+    private WebElement click4;
+
+    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/button"))
+    private WebElement btnContinuarTX;
+
+    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/button"))
+    private WebElement btnContinuarTX2;
+
+    @FindBy(xpath = ("//*[@id='control']/frame[2]"))
+    private WebElement frame;
+
+    @FindBy(name = ("rutClient"))
+    private WebElement rutClient;
+
+    @FindBy(name = ("passwordClient"))
+    private WebElement passw;
+
+    @FindBy(xpath = ("/html/body/div/form/table/tbody/tr[9]/td/input[1]"))
+    private WebElement btnAceptar;
+
+    @FindBy(xpath = ("/html/body/div/form/table/tbody/tr[4]/td/input"))
+    private WebElement btnAceptar2;
+
+    @FindBy(id = ("j_idt49:j_idt54"))
+    private WebElement btnACK;
 
 
     WebDriverWait wait = new WebDriverWait(Applicationlauncher.driver, 15);
@@ -74,78 +115,78 @@ public class PageWebPay {
         btnCredito.click();
     }
 
-    @FindBy(id = "visa-card-show")
-    private WebElement btnTarjetaCredito;
-
     public void btnTarjetaCredito(String tc) {
         wait.until(ExpectedConditions.visibilityOf(btnTarjetaCredito));
         btnTarjetaCredito.clear();
         btnTarjetaCredito.sendKeys(tc);
     }
 
-    @FindBy(id = "password-invalid")
-    private WebElement btncvv;
-
     public void btncvv(String cvv) {
         wait.until(ExpectedConditions.visibilityOf(btncvv));
         btncvv.sendKeys(cvv);
     }
-
-    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[1]"))
-    private WebElement click1;
 
     public void clickclick1(){
         wait.until(ExpectedConditions.visibilityOf(click1));
         click1.click();
     }
 
-    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[1]/option[3]"))
-    private WebElement click2;
-
     public void clickclick2(){
         wait.until(ExpectedConditions.visibilityOf(click2));
         click2.click();
     }
-
-    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[2]"))
-    private WebElement click3;
 
     public void clickclick3(){
         wait.until(ExpectedConditions.visibilityOf(click3));
         click3.click();
     }
 
-    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[2]/option[5]"))
-    private WebElement click4;
-
     public void clickclick4(){
         wait.until(ExpectedConditions.visibilityOf(click4));
         click4.click();
     }
-
-    @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/button"))
-    private WebElement btnContinuarTX;
 
     public void clickbtnContinuarTX(){
         wait.until(ExpectedConditions.visibilityOf(btnContinuarTX));
         btnContinuarTX.click();
     }
 
+    public void clickbtnContinuarTX2(){
+        wait.until(ExpectedConditions.visibilityOf(btnContinuarTX2));
+        btnContinuarTX2.click();
+    }
 
-   /*
+    public void switchToFrame(){
+        wait.until(ExpectedConditions.visibilityOf(frame));
+        Applicationlauncher.driver.switchTo().frame(frame);
 
+    }
 
-            WebElement btncvv = wait.until(presenceOfElementLocated(By.id("password-invalid")));
-            btncvv.click();
-            Thread.sleep(1500);
-            btncvv.sendKeys("1234");
+    public void clickrutClient(String rut){
+        wait.until(ExpectedConditions.visibilityOf(rutClient));
+        rutClient.clear();
+        rutClient.sendKeys(rut);
+    }
 
-            driver.findElement(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[1]")).click();
-            driver.findElement(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[1]/option[3]")).click();
-            driver.findElement(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[2]")).click();
-            driver.findElement(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[2]/option[5]")).click();
+    public void clickpasswordClient(String pass){
+        wait.until(ExpectedConditions.visibilityOf(passw));
+        passw.clear();
+        passw.sendKeys(pass);
+    }
 
-            Thread.sleep(1500);*/
+    public void clickbtnAceptar(){
+        wait.until(ExpectedConditions.visibilityOf(btnAceptar));
+        btnAceptar.click();
+    }
 
+    public void clickbtnAceptar2(){
+        wait.until(ExpectedConditions.visibilityOf(btnAceptar2));
+        btnAceptar2.click();
+    }
+
+    public void clickbtnACK(){
+        wait.until(ExpectedConditions.visibilityOf(btnACK));
+        btnACK.click();
+    }
 
 }

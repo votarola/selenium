@@ -94,7 +94,7 @@ formatter.match({
   "location": "Def_PagoWebPay.quiero_realizar_un_pago_por_webpay_mall()"
 });
 formatter.result({
-  "duration": 6813991632,
+  "duration": 10086299482,
   "status": "passed"
 });
 formatter.match({
@@ -107,14 +107,14 @@ formatter.match({
   "location": "Def_PagoWebPay.ingreso_los_montos_y_pago_con(String)"
 });
 formatter.result({
-  "duration": 8128593058,
+  "duration": 9452168446,
   "status": "passed"
 });
 formatter.match({
   "location": "Def_PagoWebPay.se_realiza_el_pago()"
 });
 formatter.result({
-  "duration": 6735163719,
+  "duration": 43609472369,
   "status": "passed"
 });
 });

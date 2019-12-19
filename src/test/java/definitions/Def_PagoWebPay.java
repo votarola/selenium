@@ -7,6 +7,7 @@ import cucumber.api.java.en.When;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Applicationlauncher;
+
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 
@@ -17,9 +18,11 @@ public class Def_PagoWebPay {
     public static String monto = "321";
     public static String tc = "377826100086878";
     public static String cvv = "1234";
+    public static String rut = "111111111";
+    public static String pass = "123";
 
 
-    public static Object compras[][] = {
+    public static Object[][] compras = {
             {"597038357948", "1", "1500"},
             {"597038357948", "1", "2000"},
             {"597038357921", "1", "2500"},
@@ -28,11 +31,8 @@ public class Def_PagoWebPay {
     @Given("^quiero realizar un pago por webpay mall$")
     public void quiero_realizar_un_pago_por_webpay_mall() throws Throwable {
 
-
         Applicationlauncher.setUp();
         Applicationlauncher.driver.get("https://web3qa.test.transbank.cl:8443/ewebpay/jsf/welcome.jsf");
-
-
     }
 
     @When("^ingreso los montos y pago con \"([^\"]*)\"$")
@@ -72,81 +72,23 @@ public class Def_PagoWebPay {
     public void se_realiza_el_pago() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
 
-
         Applicationlauncher.pageWebPay.clickbtnCredito();
         Applicationlauncher.pageWebPay.btnTarjetaCredito(tc);
-        Thread.sleep(1500);
+        Thread.sleep(2000);
         Applicationlauncher.pageWebPay.clickclick1();
         Applicationlauncher.pageWebPay.clickclick2();
         Applicationlauncher.pageWebPay.clickclick3();
         Applicationlauncher.pageWebPay.clickclick4();
         Applicationlauncher.pageWebPay.btncvv(cvv);
-        Thread.sleep(1500);
+        Thread.sleep(2000);
         Applicationlauncher.pageWebPay.clickbtnContinuarTX();
+        Applicationlauncher.pageWebPay.clickbtnContinuarTX2();
+        Applicationlauncher.pageWebPay.switchToFrame();
+        Applicationlauncher.pageWebPay.clickrutClient(rut);
+        Applicationlauncher.pageWebPay.clickpasswordClient(pass);
+        Applicationlauncher.pageWebPay.clickbtnAceptar();
+        Applicationlauncher.pageWebPay.clickbtnAceptar2();
+        Applicationlauncher.pageWebPay.clickbtnACK();
 
     }
 }
-
-
-    /*
-
-           *//*
-           WebElement btnCredito = wait.until(presenceOfElementLocated(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-payment/a[1]")));
-           btnCredito.click();
-
-
-            driver.findElement(By.id("visa-card-show")).sendKeys("377826100086878");
-            driver.findElement(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[1]")).click();
-            driver.findElement(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[1]/option[3]")).click();
-            driver.findElement(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[2]")).click();
-            driver.findElement(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[2]/option[5]")).click();
-            driver.findElement(By.id("password-invalid")).sendKeys("1234");
-
-            Thread.sleep(2000);
-
-            driver.findElement(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/button")).click();
-            driver.findElement(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/div/div/div[1]/select")).click();
-            driver.findElement(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/div/div/div[1]/select/option[1]")).click();
-
-            driver.findElement(By.xpath("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/button")).click();
-
-            //TODO frame
-            WebElement frame = wait.until(presenceOfElementLocated(By.xpath("//*[@id='control']/frame[2]")));
-            driver.switchTo().frame(frame);
-
-            WebElement rutClient = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("rutClient")));
-            rutClient.clear();
-            rutClient.sendKeys("111111111");
-
-            WebElement passwordClient = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("passwordClient")));
-            passwordClient.clear();
-            passwordClient.sendKeys("123");
-
-            driver.findElement(By.xpath("/html/body/div/form/table/tbody/tr[9]/td/input[1]")).click();
-            driver.findElement(By.xpath("/html/body/div/form/table/tbody/tr[4]/td/input")).click();
-            try {
-                Thread.sleep(10000);
-            } catch (InterruptedException e){
-                e.printStackTrace();
-            }
-
-            driver.findElement(By.id("j_idt49:j_idt54")).click();
-            try {
-                Thread.sleep(10000);
-            } catch (InterruptedException e){
-                e.printStackTrace();
-            }*//*
-
-            //WebElement firstResult = wait.until(presenceOfElementLocated(By.cssSelector("h3>div")));
-            //System.out.println(firstResult.getAttribute("textContent"));
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            //driver.quit();
-        }
-
-    }
-    }
-*/
-
