@@ -41,18 +41,21 @@ public class Applicationlauncher {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability("automationName", "UiAutomator2");
-        capabilities.setCapability("deviceName", "BPN0218625007244");
+        capabilities.setCapability("deviceName", "db3cb419");
         capabilities.setCapability("platformName", "Android");
 
         //capabilities.setCapability("dontStopAppOnReset", true);
         //capabilities.setBrowserName("chrome");
-        //capabilities.setCapability("appPackage", "cl.transbank.onepay");
-        //capabilities.setCapability("appActivity", "cl.transbank.onepay.ui.splash.EWSplashActivity_");
-        capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "chrome");
+
+        capabilities.setCapability("appPackage", "cl.transbank.apppyme");
+        capabilities.setCapability("appActivity", "cl.transbank.apppyme.MainActivity");
+        //capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "chrome");
         capabilities.setCapability("noReset", true);
-        capabilities.setCapability("chromedriverExecutable",
-                "src/test/resources/driver/windows/chromedriver.exe");
+
+        //capabilities.setCapability("chromedriverExecutable",
+        //        "src/test/resources/driver/windows/chromedriver.exe");
         //capabilities.setCapability("newCommandTimeout", 1800); // 30min
+
         capabilities.setCapability("noReset", true);
         capabilities.setCapability("autoGrantPermissions", true);
 
