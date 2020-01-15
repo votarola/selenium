@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Applicationlauncher;
 
+
 public class PageWebPay {
 
     public static WebDriver driver;
@@ -35,7 +36,8 @@ public class PageWebPay {
     @FindBy(id = "visa-card-show")
     private WebElement btnTarjetaCredito;
 
-    @FindBy(id = "password-invalid")
+
+    @FindBy(xpath = "//*[@id=\"password-invalid\"]")
     private WebElement btncvv;
 
     @FindBy(xpath = ("/html/body/app-root/app-home/main/app-home-normal/main/div/div/div/app-credit/div/div/form/select[1]"))
@@ -71,15 +73,24 @@ public class PageWebPay {
     @FindBy(xpath = ("/html/body/div/form/table/tbody/tr[4]/td/input"))
     private WebElement btnAceptar2;
 
-    @FindBy(id = ("j_idt49:j_idt54"))
+    @FindBy(xpath = ("//*[@id=\"j_idt49:j_idt54\"]"))
     private WebElement btnACK;
+
+
 
 
     WebDriverWait wait = new WebDriverWait(Applicationlauncher.driver, 15);
 
-    public void clickPagoMall(){
-        wait.until(ExpectedConditions.visibilityOf(btnPagoMall));
-        btnPagoMall.click();
+    public boolean clickPagoMall(){
+        try{
+            wait.until(ExpectedConditions.visibilityOf(btnPagoMall));
+            btnPagoMall.click();
+            return true;
+        } catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
     }
 
     public void ingresarCodigoComercio(String comercio){
@@ -110,7 +121,7 @@ public class PageWebPay {
         initTransaction.click();
     }
 
-    public void clickbtnCredito(){
+    public void clickbtnCredito() {
         wait.until(ExpectedConditions.visibilityOf(btnCredito));
         btnCredito.click();
     }
@@ -188,5 +199,6 @@ public class PageWebPay {
         wait.until(ExpectedConditions.visibilityOf(btnACK));
         btnACK.click();
     }
+
 
 }

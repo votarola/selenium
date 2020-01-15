@@ -3,14 +3,11 @@ package utils;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-
 import com.cucumber.listener.ExtentProperties;
 import com.cucumber.listener.Reporter;
-
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
@@ -45,7 +42,9 @@ public class RunnerTest {
         sdf = new SimpleDateFormat("dd-MM-YYYY_hh-mm-ss");
 
         ExtentProperties extentProperties = ExtentProperties.INSTANCE;
-        extentProperties.setReportPath("src/test/resources/reportes/html/html/Reporte_Selenium_"
+        extentProperties.setReportPath("src/test/resources/reportes/html/Reporte_Selenium_"
+
+                //extentProperties.setReportPath("src/test/resources/reportes/html/html/Reporte_Selenium_"
                 + sdf.format(new Date()) + ".html");
     }
 }
